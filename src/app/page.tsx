@@ -28,10 +28,10 @@ import ProjectMap from '@/components/ProjectMap';
 const TRANSLATIONS = {
   en: {
     nav: ['About', 'Projects', 'Expertise', 'Contact'],
-    title: "JULIE SHESTAKOVA",
+    title: "JULIA SHESTAKOVA",
     subtitle: "Senior AI Architect",
     heroBadge: "Architectural Evolution",
-    heroTitle: "JULIE SHESTAKOVA | SENIOR AI ARCHITECT",
+    heroTitle: "JULIA SHESTAKOVA | SENIOR AI ARCHITECT",
     heroDesc: "Architecting the future through multi-model AI orchestration, generative media ecosystems, and AI-native engineering methodologies.",
     cta: "Open Project Console",
     expertise: "EXPERTISE",
@@ -52,10 +52,10 @@ const TRANSLATIONS = {
   },
   ru: {
     nav: ['Обо мне', 'Проекты', 'Навыки', 'Контакты'],
-    title: "JULIE SHESTAKOVA",
+    title: "JULIA SHESTAKOVA",
     subtitle: "Senior AI Архитектор",
     heroBadge: "Architectural Evolution",
-    heroTitle: "JULIE SHESTAKOVA | SENIOR AI АРХИТЕКТОР",
+    heroTitle: "JULIA SHESTAKOVA | SENIOR AI АРХИТЕКТОР",
     heroDesc: "Проектирование будущего через оркестрацию мультимодальных нейросетей, генеративные медиа-экосистемы и AI-native методологии разработки.",
     cta: "Открыть консоль проектов",
     expertise: "НАВЫКИ",
