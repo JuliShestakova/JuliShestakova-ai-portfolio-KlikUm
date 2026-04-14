@@ -167,7 +167,7 @@ export default function PortfolioPage() {
              transition={{ duration: 0.8, delay: 0.5 }}
              className="flex flex-col items-center text-center max-w-5xl mx-auto"
           >
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.85] mb-6 text-glow-white">
+              <h1 className="text-3xl md:text-4xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.85] mb-6 text-glow-white">
                 {t.heroTitle}
               </h1>
               <p className="text-sm md:text-lg text-white/60 leading-relaxed font-medium mb-10 max-w-3xl">
