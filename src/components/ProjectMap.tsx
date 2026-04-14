@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Eye, X, Terminal, Cpu, Zap, ShieldCheck } from "lucide-react";
+import { Eye, X, Terminal, Cpu, Zap, ShieldCheck, Database } from "lucide-react";
 import ArchitectureDiagram from "./ArchitectureDiagram";
 
 /**
