@@ -1,214 +1,205 @@
 'use client';
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Shield, Zap, Database, Cpu, Cloud, Globe, Languages } from 'lucide-react';
-import NeuronOrb from '@/components/NeuronOrb';
-import NeuralChatUI from '@/components/NeuralChatUI';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  Globe2, 
+  Cpu, 
+  Code2, 
+  MessageSquare, 
+  BrainCircuit, 
+  ChevronRight, 
+  Sparkles,
+  Search,
+  Zap,
+  ShieldCheck,
+  Smartphone,
+  Server
+} from 'lucide-react';
 import ProjectMap from '@/components/ProjectMap';
-
-/**
- * Portfolio Home Page (Sleek Minimalist Rebuild)
- * A premium professional interface showcasing AI architecture and product design.
- */
+import NeuralChatUI from '@/components/NeuralChatUI';
 
 const TRANSLATIONS = {
   en: {
     nav: ['About', 'Projects', 'Expertise', 'Contact'],
-    title: "JULI SHESTAKOVA",
+    title: "JULIE SHESTAKOVA",
     subtitle: "Senior AI Architect",
-    heroTitle: "JULI SHESTAKOVA | SENIOR AI ARCHITECT",
+    heroTitle: "JULIE SHESTAKOVA | SENIOR AI ARCHITECT",
     heroDesc: "Architecting the future through multi-model AI orchestration, generative media ecosystems, and AI-native engineering methodologies.",
     expertise: "EXPERTISE",
     projectMap: "PROJECT_MAP",
-    footerCopyright: "© 2026 AI ARCHITECT // SYSTEM_STABLE",
+    touch: "GET IN TOUCH",
+    footerCopyright: "© 2024 AI ARCHITECT PORTFOLIO // ALL RIGHTS RESERVED",
+    viewBlueprint: "View Technical Blueprint",
     skills: [
-      { label: "AI Orchestration (GPT-4o/Claude 3.5)" },
-      { label: "RU Ecosystem (GigaChat/YandexGPT)" },
-      { label: "Generative Video (Runway/Sora)" },
-      { label: "AI-Native Dev (Antigravity/Cursor)" },
-      { label: "Real-time Systems (Messenger Engine)" },
-      { label: "Scalable Infra (Supabase/Redis)" },
-      { label: "Next.js 16 & React 18" },
+      { label: "Multi-Model Orchestration (GPT-4o, Claude 3.5, Gemini)" },
+      { label: "RU-Market AI Integration (GigaChat Pro, YandexGPT 3)" },
+      { label: "Generative Video Pipeline (Runway Gen-3, Sora, Kling AI)" },
+      { label: "AI-Native Development (Antigravity & Cursor Expert)" },
       { label: "Python & Python-AI Integration" },
-      { label: "Creative AI (Nano Banana)" },
-      { label: "Mobile Native (Capacitor)" },
-      { label: "High-Performance Architecture" },
-      { label: "Product Design Strategy" }
+      { label: "Frontend Performance (Next.js 16, Tailwind 4, TS)" }
     ]
   },
   ru: {
     nav: ['Обо мне', 'Проекты', 'Навыки', 'Контакты'],
-    title: "ЮЛИЯ ШЕСТАКОВА",
+    title: "JULIE SHESTAKOVA",
     subtitle: "Senior AI Архитектор",
-    heroTitle: "ЮЛИЯ ШЕСТАКОВА | SENIOR AI АРХИТЕКТОР",
+    heroTitle: "JULIE SHESTAKOVA | SENIOR AI АРХИТЕКТОР",
     heroDesc: "Проектирование будущего через оркестрацию мультимодальных нейросетей, генеративные медиа-экосистемы и AI-native методологии разработки.",
     expertise: "НАВЫКИ",
     projectMap: "КАРТА_ПРОЕКТОВ",
-    footerCopyright: "© 2026 AI АРХИТЕКТ // SYSTEM_STABLE",
+    touch: "СВЯЗАТЬСЯ",
+    footerCopyright: "© 2024 AI ARCHITECT PORTFOLIO // ВСЕ ПРАВА ЗАЩИЩЕНЫ",
+    viewBlueprint: "Посмотреть тех-схему",
     skills: [
-      { label: "AI Оркестрация (GPT-4o/Claude)" },
-      { label: "RU Экосистемы (GigaChat/Yandex)" },
-      { label: "Генеративное Видео (Runway/Sora)" },
-      { label: "AI-Native Разработка (Antigravity)" },
-      { label: "Real-time Системы (Messenger)" },
-      { label: "Масштабируемая Infra (Supabase)" },
-      { label: "Next.js 16 & React 18" },
-      { label: "Python & AI Интеграция" },
-      { label: "Креативный AI (Nano Banana)" },
-      { label: "Mobile Native (Capacitor)" },
-      { label: "High-Performance Архитектура" },
-      { label: "Продуктовая Стратегия" }
+      { label: "Оркестрация моделей (GPT-4o, Claude 3.5, Gemini)" },
+      { label: "Интеграция RU-решений (GigaChat Pro, YandexGPT 3)" },
+      { label: "Generative Video (Runway Gen-3, Sora, Kling AI)" },
+      { label: "AI-Native разработка (Antigravity & Cursor)" },
+      { label: "Python и интеграция Python-AI" },
+      { label: "Performance-инжиниринг (Next.js 16, Tailwind 4, TS)" }
     ]
   }
 };
 
 export default function PortfolioPage() {
-  const [lang, setLang] = useState<'en' | 'ru'>('en');
+  const [lang, setLang] = useState<'en' | 'ru'>('ru');
+  const [mounted, setMounted] = useState(false);
   const t = TRANSLATIONS[lang];
 
-  const toggleLang = () => setLang(prev => prev === 'en' ? 'ru' : 'en');
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return <div className="min-h-screen bg-black" />;
 
   return (
-    <main className="min-h-screen bg-[#0a0a0c] text-white selection:bg-cyan-500/30">
+    <main className="min-h-screen bg-[#020203] text-white selection:bg-cyan-500/30 font-sans tracking-tight">
       
-      {/* 1. STICKY HEADER */}
-      <nav className="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-md border-b border-white/5">
-        <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex flex-col">
-            <span className="text-sm font-black tracking-tighter uppercase text-white/90">{t.title}</span>
-            <span className="text-[9px] uppercase tracking-widest text-white/30 font-bold">{t.subtitle}</span>
+      {/* 1. PROGRESSIVE HUD HEADER */}
+      <nav className="fixed top-0 w-full z-50 border-b border-white/[0.03] bg-black/40 backdrop-blur-xl">
+        <div className="container mx-auto px-6 h-14 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse shadow-[0_0_10px_rgba(34,211,238,0.5)]" />
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/90">{t.title}</span>
           </div>
+
           <div className="hidden md:flex items-center gap-8">
-            {t.nav.map((item, idx) => (
-              <a key={item} href={`#${TRANSLATIONS.en.nav[idx].toLowerCase()}`} className="text-[10px] font-black uppercase tracking-widest text-white/40 hover:text-white transition-colors">
-                {item}
-              </a>
+            {t.nav.map((item) => (
+              <button key={item} className="text-[9px] font-bold uppercase tracking-widest text-white/40 hover:text-white transition-colors cursor-pointer">
+                // {item}
+              </button>
             ))}
+            <div className="h-4 w-[1px] bg-white/10" />
             <button 
-              onClick={toggleLang}
-              className="flex items-center gap-2 px-3 py-1 rounded-full glass-pill border border-white/10 text-[10px] font-bold text-cyan-400 hover:bg-white/5 transition-all"
+              onClick={() => setLang(lang === 'en' ? 'ru' : 'en')}
+              className="text-[9px] font-black uppercase tracking-widest text-cyan-400 hover:text-cyan-300 transition-colors"
             >
-              <Languages size={12} />
-              {lang.toUpperCase()}
+              [{lang === 'en' ? 'RU' : 'EN'}]
             </button>
           </div>
         </div>
       </nav>
 
-      {/* 2. HERO SECTION */}
-      <section id="about" className="pt-32 pb-20 relative overflow-hidden">
-        {/* Decorative Background Elements */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
-        
-        <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-          
-          {/* Left: Chat Console */}
-          <div className="lg:col-span-4 order-2 lg:order-1 flex justify-center">
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <NeuralChatUI lang={lang} />
-            </motion.div>
-          </div>
-
-          {/* Center: Hero Core */}
-          <div className="lg:col-span-4 order-1 lg:order-2 flex flex-col items-center justify-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ type: "spring", damping: 20 }}
-              className="mb-8"
-            >
-              <NeuronOrb size="lg" />
-            </motion.div>
-          </div>
-
-          {/* Right: Visual Accent (Subtle Wireframe) */}
-          <div className="hidden lg:flex lg:col-span-4 order-3 justify-end opacity-20 hover:opacity-40 transition-opacity">
-             <NeuronOrb size="md" className="scale-75 blur-sm" />
-          </div>
+      {/* 2. NEURAL HERO SECTION */}
+      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+        {/* Background Visuals */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/5 blur-[120px] rounded-full" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-500/5 blur-[120px] rounded-full" />
         </div>
 
-        {/* Hero Text (Below the Orb) */}
-        <div className="container mx-auto px-6 mt-16 text-center max-w-2xl">
-          <motion.div
+        <div className="container mx-auto relative z-10">
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+            className="max-w-4xl"
           >
-            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4 text-glow-white">
+            <div className="flex items-center gap-4 mb-6">
+              <span className="px-3 py-1 rounded-full border border-cyan-500/20 bg-cyan-500/5 text-[9px] font-black text-cyan-400 uppercase tracking-widest">
+                System Status: Online
+              </span>
+              <div className="h-[1px] w-12 bg-white/10" />
+              <span className="text-[9px] font-mono text-white/20">Latency: 24ms</span>
+            </div>
+
+            <h1 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9] mb-8">
               {t.heroTitle}
-            </h2>
-            <p className="text-sm md:text-base text-white/40 font-medium leading-relaxed uppercase tracking-wide">
+            </h1>
+
+            <p className="text-base md:text-xl text-white/40 leading-relaxed font-medium max-w-2xl mb-12">
               {t.heroDesc}
             </p>
+
+            <div className="flex flex-wrap gap-4">
+              <button className="px-8 py-4 bg-white text-black text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-cyan-400 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+                Launch Project Console
+              </button>
+              <button className="px-8 py-4 border border-white/10 text-white text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-white/5 transition-colors">
+                Read Whitepapers
+              </button>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* 3. EXPERTISE SECTION (Badges) */}
-      <section id="expertise" className="py-10 bg-white/[0.01] border-y border-white/5">
-        <div className="container mx-auto px-6 flex flex-wrap justify-center gap-4">
-          {t.skills.map((skill, idx) => {
-            const icons = [Shield, Zap, Database, Cpu, Cloud, Globe];
-            const Icon = icons[idx % icons.length] || Shield;
-            return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.05 * idx }}
-                className="glass-pill px-6 py-3 rounded-full flex items-center gap-3 border border-white/5 hover:border-white/20 transition-all cursor-default"
-              >
-                <Icon size={14} className="text-white/60" />
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/80">{skill.label}</span>
-              </motion.div>
-            );
-          })}
-        </div>
-      </section>
+      {/* 3. EXPERTISE GRID (THE SUBSTANCE) */}
+      <section className="py-20 border-y border-white/[0.03] bg-white/[0.01]">
+        <div className="container mx-auto px-6">
+          <header className="flex items-center gap-4 mb-12">
+            <h2 className="text-sm font-black uppercase tracking-[0.4em] text-white/90">{t.expertise}</h2>
+            <div className="h-[1px] flex-1 bg-white/5" />
+          </header>
 
-      {/* 4. PROJECTS MAP */}
-      <section id="projects" className="py-20">
-        <ProjectMap lang={lang} />
-      </section>
-
-      {/* 5. FOOTER */}
-      <footer id="contact" className="py-12 border-t border-white/5 bg-black/30">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex flex-col gap-1 items-center md:items-start text-center md:text-left">
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/90">
-              {lang === 'ru' ? 'ЮЛИЯ ШЕСТАКОВА' : 'JULI SHESTAKOVA'}
-            </span>
-            <span className="text-[9px] text-white/20 uppercase tracking-widest">{t.footerCopyright}</span>
-          </div>
-          <div className="flex gap-12 items-center">
-            <button 
-              onClick={toggleLang}
-              className="text-[9px] font-black uppercase tracking-widest text-cyan-400 hover:text-white transition-all"
-            >
-              {lang === 'en' ? 'RU' : 'EN'}
-            </button>
-            {['GitHub', 'LinkedIn', 'Terminal'].map((link) => (
-              <React.Fragment key={link}>
-                {link === 'GitHub' ? (
-                  <a href="https://github.com/JuliShestakova" target="_blank" rel="noreferrer" className="text-[9px] font-black uppercase tracking-widest text-white/40 hover:text-cyan-400 transition-all">
-                    {link}
-                  </a>
-                ) : (
-                  <span className="text-[9px] font-black uppercase tracking-widest text-white/40 hover:text-cyan-400 cursor-pointer transition-all">
-                    {link}
-                  </span>
-                )}
-              </React.Fragment>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5 rounded-3xl overflow-hidden">
+            {t.skills.map((skill, idx) => (
+              <div key={idx} className="bg-[#020203] p-10 group hover:bg-white/[0.02] transition-colors">
+                <div className="text-cyan-500/20 group-hover:text-cyan-400 transition-colors mb-6">
+                  {idx % 3 === 0 ? <BrainCircuit size={32} /> : idx % 3 === 1 ? <Cpu size={32} /> : <Code2 size={32} />}
+                </div>
+                <h3 className="text-xs font-black uppercase tracking-[0.1em] text-white/80 leading-relaxed group-hover:text-white transition-colors">
+                  {skill.label}
+                </h3>
+              </div>
             ))}
           </div>
         </div>
-      </footer>
+      </section>
 
+      {/* 4. INTEGRATED PROJECT MAP */}
+      <ProjectMap lang={lang} />
+
+      {/* 5. INTERACTIVE CHAT & MESSENGER */}
+      <div className="py-24">
+        <NeuralChatUI lang={lang} />
+      </div>
+
+      {/* 6. TECHNICAL FOOTER */}
+      <footer className="py-20 border-t border-white/[0.03] bg-black">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex flex-col gap-1 items-center md:items-start text-center md:text-left">
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/90">
+              {t.title}
+            </span>
+            <span className="text-[9px] text-white/20 uppercase tracking-widest">{t.footerCopyright}</span>
+          </div>
+
+          <div className="flex gap-10">
+            <FooterLink label="GitHub" />
+            <FooterLink label="LinkedIn" />
+            <FooterLink label="Email" />
+          </div>
+        </div>
+      </footer>
     </main>
+  );
+}
+
+function FooterLink({ label }: { label: string }) {
+  return (
+    <a href="#" className="group flex flex-col items-center gap-1">
+      <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white/30 group-hover:text-cyan-400 transition-colors">{label}</span>
+      <div className="w-0 h-[1px] bg-cyan-500 group-hover:w-full transition-all duration-300" />
+    </a>
   );
 }
