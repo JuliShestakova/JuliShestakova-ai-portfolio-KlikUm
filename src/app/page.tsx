@@ -224,9 +224,6 @@ export default function PortfolioPage() {
               <h1 className="text-3xl md:text-4xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.85] mb-6 text-glow-white">
                 {t.heroTitle}
               </h1>
-              <h1 className="text-3xl md:text-4xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.85] mb-6 text-glow-white">
-                {t.heroTitle}
-              </h1>
               <p className="text-sm md:text-lg text-white/60 leading-relaxed font-medium mb-10 max-w-3xl">
                 {t.heroDesc}
               </p>
