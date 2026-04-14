@@ -1,4 +1,4 @@
-# [shestakova-ai-portfolio](https://github.com/JuliShestakova/shestakova-ai-portfolio)
+# [JuliShestakova-ai-portfolio-KlikUm](https://github.com/JuliShestakova/JuliShestakova-ai-portfolio-KlikUm)
 
 ## 🚀 AI-Powered Frontend Portfolio: Neural HUD Showcase
 This repository is a curated showcase of advanced UI components and AI-integration patterns extracted from the **KlikUm** platform. It demonstrates a high-end "Neural HUD" design language, immersive glassmorphism, and complex AI orchestration logic.
