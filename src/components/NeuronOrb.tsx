@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 
 /**
- * NeuronOrb Component (Ultra-HUD)
- * A high-performance animation component representing a central neural core.
- * Features nested orbits, internal plasma core, and glass refraction.
+ * NeuronOrb Component (Sleek Minimalist - Wireframe Edition)
+ * A premium, clean geometric core representing a neural network.
+ * Features rotating thin rings, subtle glow, and absolute clarity.
  */
 
 interface NeuronOrbProps {
@@ -23,82 +23,43 @@ export default function NeuronOrb({ size = "md", className = "" }: NeuronOrbProp
 
     return (
         <div className={`relative flex items-center justify-center ${dimensions[size]} ${className}`}>
-            {/* SVG Filter Engine for Neural Core */}
-            <svg className="absolute w-0 h-0 invisible">
-                <filter id="neural-noise">
-                    <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" result="noise" />
-                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" />
-                </filter>
-            </svg>
+            {/* Soft Ambient Glow Pool */}
+            <div className="absolute inset-[-40%] bg-blue-500/5 blur-[100px] rounded-full" />
 
-            {/* Background Atmosphere Glow */}
-            <div className="absolute inset-[-50%] bg-purple-600/10 blur-[120px] rounded-full animate-pulse-slow" />
-
-            {/* Outer Orbit 1 (Electric Path) */}
+            {/* Main Rotating Wireframe Container */}
             <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute border border-purple-500/20 rounded-full"
-                style={{ width: "140%", height: "140%" }}
+                animate={{ rotateY: 360, rotateZ: 360 }}
+                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                className="relative w-full h-full flex items-center justify-center preserve-3d"
             >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-cyan-400 rounded-full shadow-[0_0_15px_rgba(34,211,238,0.8)]" />
-            </motion.div>
-
-            {/* Neural Connections (Floating Lines) */}
-            <div className="absolute inset-0 z-0 opacity-40">
-                {[...Array(6)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        animate={{ 
-                            rotate: [i * 60, i * 60 + 360],
-                            scale: [1, 1.1, 1],
-                            opacity: [0.2, 0.5, 0.2]
-                        }}
-                        transition={{ duration: 10 + i * 2, repeat: Infinity, ease: "linear" }}
-                        className="absolute top-1/2 left-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-purple-500/50 to-transparent -translate-x-1/2 -translate-y-1/2"
+                {/* Horizontal Rings */}
+                {[...Array(5)].map((_, i) => (
+                    <div
+                        key={`h-${i}`}
+                        className="absolute w-full h-full rounded-full border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)]"
+                        style={{ transform: `rotateX(${i * 36}deg)` }}
                     />
                 ))}
-            </div>
 
-            {/* Main Sphere Body */}
-            <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                className="relative w-full h-full rounded-full z-10 overflow-hidden"
-            >
-                {/* Outer Glass Shell */}
-                <div className="absolute inset-0 rounded-full border border-white/20 shadow-[inset_0_0_40px_rgba(255,255,255,0.1)] z-30 pointer-events-none" />
-                
-                {/* Specular Highlight */}
-                <div className="absolute top-[10%] left-[15%] w-[40%] h-[30%] bg-gradient-to-b from-white/20 to-transparent rounded-full blur-md z-30 rotate-[-15deg]" />
-
-                {/* Inner Plasma Core */}
-                <motion.div 
-                    animate={{ 
-                        scale: [1, 1.08, 1],
-                        rotate: [0, 90, 180, 270, 360]
-                    }}
-                    transition={{ 
-                        scale: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-                        rotate: { duration: 20, repeat: Infinity, ease: "linear" }
-                    }}
-                    className="absolute inset-[10%] rounded-full bg-gradient-to-br from-purple-600 via-indigo-700 to-purple-900 border border-white/10 flex items-center justify-center shadow-[0_0_60px_rgba(168,85,247,0.5)]"
-                    style={{ filter: "url(#neural-noise)" }}
-                >
-                    {/* Inner Central Nucleus */}
-                    <motion.div 
-                        animate={{ opacity: [0.6, 1, 0.6] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="w-1/3 h-1/3 bg-white rounded-full blur-xl opacity-80"
+                {/* Vertical Rings */}
+                {[...Array(5)].map((_, i) => (
+                    <div
+                        key={`v-${i}`}
+                        className="absolute w-full h-full rounded-full border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)]"
+                        style={{ transform: `rotateY(${i * 36}deg)` }}
                     />
-                </motion.div>
+                ))}
 
-                {/* Depth Texture Layers */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_40%,rgba(0,0,0,0.6)_100%)] z-20" />
+                {/* Internal Pulsing Core (Minimal) */}
+                <motion.div
+                    animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    className="w-1/4 h-1/4 bg-white/20 rounded-full blur-xl"
+                />
             </motion.div>
 
-            {/* Final Outer Glow */}
-            <div className="absolute inset-0 bg-purple-500/20 blur-3xl rounded-full z-0 animate-pulse" />
+            {/* Specular High-End Shine */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none z-20" />
         </div>
     );
 }

@@ -1,137 +1,136 @@
 'use client';
 
 import React from 'react';
-import LiquidGlass from '@/components/LiquidGlass';
-import NeuronOrb from '@/components/NeuronOrb';
-import HexagonMissionMap from '@/components/HexagonMissionMap';
-import NeuralChatUI from '@/components/NeuralChatUI';
-import ScanlineOverlay from '@/components/ScanlineOverlay';
 import { motion } from 'framer-motion';
-import { Shield, Zap, Database, Cpu } from 'lucide-react';
-import HologramPane from '@/components/HologramPane';
+import { Shield, Zap, Database, Cpu, Cloud, Globe } from 'lucide-react';
+import NeuronOrb from '@/components/NeuronOrb';
+import NeuralChatUI from '@/components/NeuralChatUI';
+import ProjectMap from '@/components/ProjectMap';
 
 /**
- * Portfolio Home Page (Ultra-HUD Evolution)
- * High-end immersive dashboard with 3D depth and parallax effects.
+ * Portfolio Home Page (Sleek Minimalist Rebuild)
+ * A premium professional interface showcasing AI architecture and product design.
  */
 
 export default function PortfolioPage() {
   return (
-    <main className="min-h-screen bg-[#0a0a0c] text-white relative overflow-hidden font-sans selection:bg-purple-500/30 perspective-[2000px]">
-      {/* HUD Effects */}
-      <ScanlineOverlay />
-
-      {/* Background Holographic Layers (Z-Depth) */}
-      <div className="absolute inset-0 pointer-events-none">
-        <HologramPane className="top-[10%] left-[5%]" delay={1} duration={15} title="NEURAL_STREAM" />
-        <HologramPane className="top-[60%] right-[10%]" delay={5} duration={18} title="LOGIC_KERN" />
-        <HologramPane className="bottom-[20%] left-[15%]" delay={3} duration={25} title="VECTOR_SYNC" />
-        <HologramPane className="top-[30%] left-[60%]" delay={7} duration={20} title="AGENT_POOL" />
-      </div>
+    <main className="min-h-screen bg-[#0a0a0c] text-white selection:bg-cyan-500/30">
       
-      {/* Layout Content */}
-      <div className="relative z-10 container mx-auto px-6 py-12 flex flex-col items-center justify-between min-h-screen">
-        
-        {/* TOP Header Section */}
-        <header className="w-full flex justify-between items-start mb-8 z-20">
-          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-            <h1 className="text-2xl font-black tracking-tighter uppercase italic text-white/90">
-              SHESTAKOVA <span className="text-purple_neural-500 font-normal not-italic">AI/PORTFOLIO</span>
-            </h1>
-            <div className="flex items-center gap-2 mt-2">
-              <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
-              <span className="text-[10px] uppercase tracking-widest text-cyan-400/80 font-bold">System Status: Active</span>
-            </div>
-          </motion.div>
-          
-          <div className="hidden md:flex gap-10 mt-2">
-             <div className="flex flex-col items-end">
-                <span className="text-[10px] uppercase text-white/30 tracking-widest">Logic Engine</span>
-                <span className="text-xs font-mono text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]">v4.0.0-PRO-MAX</span>
-             </div>
-             <div className="flex flex-col items-end">
-                <span className="text-[10px] uppercase text-white/30 tracking-widest">Kernel Sync</span>
-                <span className="text-xs font-mono text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]">0.042ms</span>
-             </div>
+      {/* 1. STICKY HEADER */}
+      <nav className="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-md border-b border-white/5">
+        <div className="container mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="flex flex-col">
+            <span className="text-sm font-black tracking-tighter uppercase text-white/90">JULI SHESTAKOVA</span>
+            <span className="text-[9px] uppercase tracking-widest text-white/30 font-bold">Senior AI Architect</span>
           </div>
-        </header>
+          <div className="hidden md:flex gap-8">
+            {['About', 'Projects', 'Expertise', 'Contact'].map((item) => (
+              <a key={item} href={`#${item.toLowerCase()}`} className="text-[10px] font-black uppercase tracking-widest text-white/40 hover:text-white transition-colors">
+                {item}
+              </a>
+            ))}
+          </div>
+        </div>
+      </nav>
 
-        {/* MIDDLE Main Section: Perspective Layout */}
-        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-0 items-center flex-1 preserve-3d">
+      {/* 2. HERO SECTION */}
+      <section id="about" className="pt-32 pb-20 relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
+        
+        <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
           
-          {/* Left Side: Neural Chat (Angled Inward) */}
-          <section className="lg:col-span-4 order-2 lg:order-1 flex justify-center lg:justify-start">
-             <motion.div 
-               initial={{ opacity: 0, x: -80, rotateY: 35 }} 
-               animate={{ opacity: 1, x: 0, rotateY: 20 }}
-               transition={{ delay: 0.5, duration: 1.2, type: "spring" }}
-               className="w-full max-w-sm"
-               style={{ transformStyle: 'preserve-3d' }}
-             >
-                <NeuralChatUI />
-             </motion.div>
-          </section>
+          {/* Left: Chat Console */}
+          <div className="lg:col-span-4 order-2 lg:order-1 flex justify-center">
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <NeuralChatUI />
+            </motion.div>
+          </div>
 
-          {/* Center: Neuron Orb (Front & Center) */}
-          <section className="lg:col-span-4 order-1 lg:order-2 flex flex-col items-center justify-center min-h-[450px] z-20">
-             <motion.div 
-               initial={{ opacity: 0, scale: 0.6, z: -200 }} 
-               animate={{ opacity: 1, scale: 1, z: 0 }}
-               transition={{ type: "spring", damping: 15, delay: 0.2 }}
-               className="relative"
-             >
-                <LiquidGlass id="main-orb" intensity={8}>
-                   <NeuronOrb size="lg" />
-                </LiquidGlass>
-             </motion.div>
-          </section>
+          {/* Center: Hero Core */}
+          <div className="lg:col-span-4 order-1 lg:order-2 flex flex-col items-center justify-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ type: "spring", damping: 20 }}
+              className="mb-8"
+            >
+              <NeuronOrb size="lg" />
+            </motion.div>
+          </div>
 
-          {/* Right Side: Map & Stats (Angled Inward) */}
-          <section className="lg:col-span-4 order-3 flex flex-col gap-6 items-center lg:items-end">
-             <motion.div 
-               initial={{ opacity: 0, x: 80, rotateY: -35 }} 
-               animate={{ opacity: 1, x: 0, rotateY: -20 }}
-               transition={{ delay: 0.7, duration: 1.2, type: "spring" }}
-               style={{ transformStyle: 'preserve-3d' }}
-             >
-                <HexagonMissionMap />
-             </motion.div>
-
-             {/* Tech Badges (Pill Style Elevation) */}
-             <div className="grid grid-cols-2 gap-3 w-full max-w-[320px]">
-                {[
-                  { icon: Shield, label: "Secure AI", color: "purple" },
-                  { icon: Zap, label: "Edge Sync", color: "cyan" },
-                  { icon: Database, label: "Vector DB", color: "orange" },
-                  { icon: Cpu, label: "Neural Net", color: "pink" }
-                ].map((item, idx) => (
-                  <motion.div 
-                    key={idx} 
-                    whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.08)' }}
-                    className="glass-pill px-4 py-3 rounded-full flex items-center gap-3 group transition-all cursor-crosshair border border-white/5"
-                  >
-                     <item.icon size={16} className={`text-${item.color}-400 group-hover:drop-shadow-[0_0_8px_currentColor] transition-all`} />
-                     <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white/50 group-hover:text-white transition-colors">
-                        {item.label}
-                     </span>
-                  </motion.div>
-                ))}
-             </div>
-          </section>
+          {/* Right: Visual Accent (Subtle Wireframe) */}
+          <div className="hidden lg:flex lg:col-span-4 order-3 justify-end opacity-20 hover:opacity-40 transition-opacity">
+             <NeuronOrb size="md" className="scale-75 blur-sm" />
+          </div>
         </div>
 
-        {/* BOTTOM Footer */}
-        <footer className="w-full mt-8 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 z-20">
-          <p className="text-[9px] text-white/20 uppercase tracking-[0.4em]">
-             // KERNEL_ARCHITECT: JULI_SHESTAKOVA // TERMINAL_READY
-          </p>
-          <div className="flex gap-10">
-            <span className="text-[9px] text-white/40 uppercase tracking-widest hover:text-purple-400 cursor-pointer transition-colors border-b border-transparent hover:border-purple-400/50 pb-1">Documentation</span>
-            <span className="text-[9px] text-white/40 uppercase tracking-widest hover:text-cyan-400 cursor-pointer transition-colors border-b border-transparent hover:border-cyan-400/50 pb-1">Engineering Logs</span>
-          </div>
-        </footer>
+        {/* Hero Text (Below the Orb) */}
+        <div className="container mx-auto px-6 mt-16 text-center max-w-2xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4 text-glow-white">
+              JULI SHESTAKOVA | SENIOR AI ARCHITECT
+            </h2>
+            <p className="text-sm md:text-base text-white/40 font-medium leading-relaxed uppercase tracking-wide">
+              Pioneering intelligent systems through sophisticated neural network architectures and scalable AI solutions.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-      </div>
+      {/* 3. EXPERTISE SECTION (Badges) */}
+      <section id="expertise" className="py-10 bg-white/[0.01] border-y border-white/5">
+        <div className="container mx-auto px-6 flex flex-wrap justify-center gap-4">
+          {[
+            { icon: Shield, label: "Neural Networks" },
+            { icon: Zap, label: "Scalable AI" },
+            { icon: Database, label: "Deep Learning" },
+            { icon: Cpu, label: "LLM Architect" },
+            { icon: Cloud, label: "Cloud Compute" },
+            { icon: Globe, label: "Global Infra" }
+          ].map((skill, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 * idx }}
+              className="glass-pill px-6 py-3 rounded-full flex items-center gap-3 border border-white/5 hover:border-white/20 transition-all cursor-default"
+            >
+              <skill.icon size={14} className="text-white/60" />
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/80">{skill.label}</span>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* 4. PROJECTS MAP */}
+      <section id="projects" className="py-20">
+        <ProjectMap />
+      </section>
+
+      {/* 5. FOOTER */}
+      <footer id="contact" className="py-12 border-t border-white/5 bg-black/30">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex flex-col gap-1 items-center md:items-start text-center md:text-left">
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/90">JULI SHESTAKOVA</span>
+            <span className="text-[9px] text-white/20 uppercase tracking-widest">© 2026 AI ARCHITECT // SYSTEM_STABLE</span>
+          </div>
+          <div className="flex gap-12 items-center">
+            {link === 'GitHub' && <a href="https://github.com/JuliShestakova" className="text-[9px] font-black uppercase tracking-widest text-white/40 hover:text-cyan-400">GitHub</a>}
+            {link === 'LinkedIn' && <span className="text-[9px] font-black uppercase tracking-widest text-white/40 hover:text-cyan-400 cursor-pointer transition-all">LinkedIn</span>}
+            {link === 'Terminal' && <span className="text-[9px] font-black uppercase tracking-widest text-white/40 hover:text-cyan-400 cursor-pointer transition-all">Terminal</span>}
+          </div>
+        </div>
+      </footer>
+
     </main>
   );
 }
