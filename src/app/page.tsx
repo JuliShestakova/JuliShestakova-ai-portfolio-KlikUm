@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Zap, Database, Cpu, Cloud, Globe, Languages } from 'lucide-react';
@@ -54,7 +56,6 @@ export default function PortfolioPage() {
   const t = TRANSLATIONS[lang];
 
   const toggleLang = () => setLang(prev => prev === 'en' ? 'ru' : 'en');
-
   return (
     <main className="min-h-screen bg-[#0a0a0c] text-white selection:bg-cyan-500/30">
       
@@ -67,7 +68,7 @@ export default function PortfolioPage() {
           </div>
           <div className="hidden md:flex items-center gap-8">
             {t.nav.map((item, idx) => (
-              <a key={item} href={`#${TRANSLATIONS.en.nav[idx].toLowerCase()}`} className="text-[10px] font-black uppercase tracking-widest text-white/40 hover:text-white transition-colors">
+              <a key={item} href={`#${lang === 'en' ? TRANSLATIONS.en.nav[idx].toLowerCase() : TRANSLATIONS.en.nav[idx].toLowerCase()}`} className="text-[10px] font-black uppercase tracking-widest text-white/40 hover:text-white transition-colors">
                 {item}
               </a>
             ))}
