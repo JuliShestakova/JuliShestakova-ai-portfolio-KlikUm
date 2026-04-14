@@ -19,10 +19,10 @@ import NeuralChatUI from '@/components/NeuralChatUI';
 import ProjectMap from '@/components/ProjectMap';
 
 /**
- * Portfolio Home Page (Visual Polish & Layout Adjustment)
- * - Text placed under the Orb.
- * - Orb and Text shifted more to the right.
- * - Colors adjusted to avoid blending (deeper charcoal with more glows).
+ * Portfolio Home Page (User-Requested Layout Polish)
+ * - Move Orb + Text to the far right.
+ * - Place all text strictly UNDER the Orb.
+ * - Bridge background color to a lighter 'Expert Dark' charcoal.
  */
 
 const TRANSLATIONS = {
@@ -36,7 +36,7 @@ const TRANSLATIONS = {
     cta: "Open Project Console",
     expertise: "EXPERTISE",
     projectMap: "PROJECT_MAP",
-    footerCopyright: "© 2026 AI ARCHITECT // SYSTEM_STABLE",
+    footerCopyright: "© 2026 AI ARCHITECT // SYSTEM_STABLE // V.3",
     skills: [
       { label: "AI Orchestration (GPT-4o/Claude 3.5)" },
       { label: "RU Ecosystem (GigaChat/YandexGPT)" },
@@ -52,15 +52,15 @@ const TRANSLATIONS = {
   },
   ru: {
     nav: ['Обо мне', 'Проекты', 'Навыки', 'Контакты'],
-    title: "JULIE SHESTAKOVA",
+    title: "ЮЛИЯ ШЕСТАКОВА",
     subtitle: "Senior AI Архитектор",
     heroBadge: "Architectural Evolution",
-    heroTitle: "JULIE SHESTAKOVA | SENIOR AI АРХИТЕКТОР",
+    heroTitle: "ЮЛИЯ ШЕСТАКОВА | SENIOR AI АРХИТЕКТОР",
     heroDesc: "Проектирование будущего через оркестрацию мультимодальных нейросетей, генеративные медиа-экосистемы и AI-native методологии разработки.",
     cta: "Открыть консоль проектов",
     expertise: "НАВЫКИ",
     projectMap: "КАРТА_ПРОЕКТОВ",
-    footerCopyright: "© 2026 AI АРХИТЕКТ // SYSTEM_STABLE",
+    footerCopyright: "© 2026 AI АРХИТЕКТ // SYSTEM_STABLE // V.3",
     skills: [
       { label: "AI Оркестрация (GPT-4o/Claude)" },
       { label: "RU Экосистемы (GigaChat/Yandex)" },
@@ -87,13 +87,13 @@ export default function PortfolioPage() {
 
   const toggleLang = () => setLang(prev => prev === 'en' ? 'ru' : 'en');
 
-  if (!mounted) return <div className="min-h-screen bg-[#020203]" />;
+  if (!mounted) return <div className="min-h-screen bg-[#0e0e12]" />;
 
   return (
-    <main className="min-h-screen bg-[#08080a] text-white selection:bg-cyan-500/30 overflow-x-hidden">
+    <main className="min-h-screen bg-[#111116] text-white selection:bg-cyan-500/30 overflow-x-hidden">
       
       {/* 1. STICKY HEADER */}
-      <nav className="fixed top-0 w-full z-[100] border-b border-white/[0.03] bg-black/40 backdrop-blur-xl">
+      <nav className="fixed top-0 w-full z-[100] border-b border-white/[0.05] bg-[#111116]/80 backdrop-blur-xl">
         <div className="container mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse shadow-[0_0_10px_rgba(34,211,238,0.5)]" />
@@ -120,68 +120,64 @@ export default function PortfolioPage() {
         </div>
       </nav>
 
-      {/* 2. HERO AREA (Adjusted Layout) */}
-      <section className="relative pt-32 pb-20 px-6 min-h-screen flex flex-col justify-center overflow-hidden">
-        {/* Deep Enhanced Background Visuals */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-[800px] h-[800px] bg-blue-600/[0.03] blur-[150px] rounded-full" />
-          <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-cyan-600/[0.03] blur-[120px] rounded-full" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:60px_60px]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#08080a] via-transparent to-[#08080a] opacity-50" />
+      {/* 2. HERO AREA (User Requested Layout) */}
+      <section className="relative pt-32 pb-20 px-6 min-h-screen flex flex-col justify-center">
+        {/* Lighter, More Layered Background Visuals */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-[10%] left-[5%] w-[600px] h-[600px] bg-blue-500/[0.08] blur-[120px] rounded-full" />
+          <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-cyan-500/[0.08] blur-[100px] rounded-full" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
         </div>
 
-        <div className="container mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="container mx-auto relative z-10 flex flex-col xl:flex-row items-center justify-between gap-16">
           
-          {/* LEFT: Chat Sidebar */}
+          {/* LEFT: Chat Console */}
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-12 xl:col-span-5 2xl:col-span-4 flex justify-center xl:justify-start"
+            className="w-full max-w-md xl:max-w-xl"
           >
-            <div className="relative group w-full max-w-md">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500/10 to-transparent rounded-3xl blur opacity-20" />
-                <div className="relative border border-white/5 rounded-3xl bg-[#0a0a0d]/80 backdrop-blur-md shadow-2xl">
-                    <NeuralChatUI lang={lang} />
-                </div>
+            <div className="relative border border-white/[0.1] rounded-3xl bg-[#1c1c24]/50 backdrop-blur-xl shadow-2xl p-1">
+                <NeuralChatUI lang={lang} />
             </div>
           </motion.div>
 
-          {/* RIGHT (Shifted Right): Orb + Text Under It */}
-          <div className="lg:col-span-12 xl:col-span-7 2xl:col-span-8 flex flex-col items-center xl:items-end justify-center py-10 xl:pr-20">
+          {/* RIGHT: Combined Orb & Text (SHIFTED FAR RIGHT) */}
+          <div className="flex-1 flex flex-col items-center xl:items-end w-full">
             
-            {/* The Orb (CORE) - Shifted Right */}
+            {/* The Orb - Large & Posh */}
             <motion.div 
-               initial={{ opacity: 0, scale: 0.9 }}
-               animate={{ opacity: 1, scale: 1 }}
+               initial={{ opacity: 0, scale: 0.9, x: 50 }}
+               animate={{ opacity: 1, scale: 1, x: 0 }}
                transition={{ duration: 1.2, type: "spring" }}
-               className="mb-12"
+               className="mb-16"
             >
               <div className="relative">
                   <NeuronOrb size="lg" className="z-10" />
-                  <div className="absolute inset-0 bg-cyan-500/5 blur-[80px] rounded-full pointer-events-none" />
+                  <div className="absolute inset-[-20%] bg-cyan-400/20 blur-[100px] rounded-full pointer-events-none" />
               </div>
             </motion.div>
 
-            {/* Content Group (UNDER SHAR) */}
+            {/* Content Strictly UNDER SHAR */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-center xl:text-right max-w-xl"
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-center xl:text-right max-w-2xl"
             >
-              <span className="inline-block px-4 py-1.5 rounded-full border border-cyan-500/20 bg-cyan-500/5 text-[10px] font-black text-cyan-400 uppercase tracking-[0.3em] mb-8 shadow-[0_0_15px_rgba(34,211,238,0.1)]">
+              <span className="inline-block px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-[10px] font-black text-cyan-400 uppercase tracking-[0.3em] mb-8">
                  {t.heroBadge}
               </span>
-              <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-tight mb-8 text-glow-white">
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.9] mb-8 text-glow-white">
                 {t.heroTitle}
               </h1>
-              <p className="text-sm md:text-lg text-white/50 leading-relaxed font-medium mb-10">
+              <p className="text-sm md:text-xl text-white/60 leading-relaxed font-medium mb-12 max-w-lg ml-auto">
                 {t.heroDesc}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center xl:justify-end">
-                  <button className="px-10 py-5 bg-white text-black text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-cyan-400 hover:scale-105 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] flex items-center justify-center gap-3">
-                     {t.cta} <ArrowRight size={14} />
+                  <button className="px-12 py-5 bg-white text-black text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-cyan-400 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] transition-all flex items-center justify-center gap-3 group">
+                     {t.cta} <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </button>
               </div>
             </motion.div>
@@ -189,22 +185,22 @@ export default function PortfolioPage() {
           </div>
 
         </div>
-        
-        {/* Subtle Bottom Glow */}
-        <div className="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-[#0c0c10] to-transparent pointer-events-none" />
+
+        {/* Custom Decorative Line linking elements */}
+        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-cyan-500/20 to-transparent hidden xl:block" />
       </section>
 
-      {/* 3. EXPERTISE GRID */}
-      <section className="py-24 bg-[#0a0a0d] border-y border-white/[0.03] relative">
+      {/* 3. EXPERTISE GRID (Lighter Background Cards) */}
+      <section className="py-24 bg-[#16161c] border-y border-white/[0.05] relative">
         <div className="container mx-auto px-6">
           <header className="flex items-center gap-4 mb-20">
             <h2 className="text-sm font-black uppercase tracking-[0.4em] text-white/90">{t.expertise}</h2>
             <div className="h-[1px] flex-1 bg-white/5" />
           </header>
 
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-px bg-white/5 border border-white/5 rounded-3xl overflow-hidden shadow-2xl">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
              {t.skills.map((skill, idx) => (
-                 <div key={idx} className="bg-[#08080a] p-8 group hover:bg-white/[0.02] transition-all border-r border-b border-white/5">
+                 <div key={idx} className="bg-[#1c1c24] p-8 rounded-2xl group hover:bg-[#22222a] transition-all border border-white/[0.08] hover:border-cyan-500/40">
                     <div className="flex flex-col gap-4">
                         <Sparkles size={16} className="text-cyan-500/40 group-hover:text-cyan-400 transition-colors" />
                         <h3 className="text-[10px] font-black uppercase tracking-wider text-white/70 group-hover:text-white transition-colors">{skill.label}</h3>
@@ -216,13 +212,12 @@ export default function PortfolioPage() {
       </section>
 
       {/* 4. DYNAMIC PROJECTS */}
-      <section className="py-24 bg-[#08080a] relative">
-         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-500/[0.02] blur-[150px] pointer-events-none" />
+      <section className="py-24 bg-[#111116] relative">
          <ProjectMap lang={lang} />
       </section>
 
       {/* 5. FOOTER */}
-      <footer className="py-20 border-t border-white/[0.03] bg-black">
+      <footer className="py-20 border-t border-white/[0.05] bg-[#0c0c10]">
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col gap-1 items-center md:items-start text-center md:text-left">
             <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/90 uppercase">

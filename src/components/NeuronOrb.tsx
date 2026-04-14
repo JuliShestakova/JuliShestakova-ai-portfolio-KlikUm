@@ -3,9 +3,7 @@
 import { motion } from "framer-motion";
 
 /**
- * NeuronOrb Component (Sleek Minimalist - Wireframe Edition)
- * A premium, clean geometric core representing a neural network.
- * Features rotating thin rings, subtle glow, and absolute clarity.
+ * NeuronOrb Component (Sleek Minimalist - Higher Visibility Edition)
  */
 
 interface NeuronOrbProps {
@@ -23,8 +21,8 @@ export default function NeuronOrb({ size = "md", className = "" }: NeuronOrbProp
 
     return (
         <div className={`relative flex items-center justify-center ${dimensions[size]} ${className}`}>
-            {/* Soft Ambient Glow Pool */}
-            <div className="absolute inset-[-40%] bg-blue-500/5 blur-[100px] rounded-full" />
+            {/* Boosted Ambient Glow Pool */}
+            <div className="absolute inset-[-40%] bg-cyan-500/10 blur-[100px] rounded-full" />
 
             {/* Main Rotating Wireframe Container */}
             <motion.div
@@ -32,34 +30,34 @@ export default function NeuronOrb({ size = "md", className = "" }: NeuronOrbProp
                 transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
                 className="relative w-full h-full flex items-center justify-center preserve-3d"
             >
-                {/* Horizontal Rings */}
+                {/* Horizontal Rings (Increased Opacity) */}
                 {[...Array(5)].map((_, i) => (
                     <div
                         key={`h-${i}`}
-                        className="absolute w-full h-full rounded-full border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.05)]"
+                        className="absolute w-full h-full rounded-full border border-white/30 shadow-[0_0_20px_rgba(34,211,238,0.1)]"
                         style={{ transform: `rotateX(${i * 36}deg)` }}
                     />
                 ))}
 
-                {/* Vertical Rings */}
+                {/* Vertical Rings (Increased Opacity) */}
                 {[...Array(5)].map((_, i) => (
                     <div
                         key={`v-${i}`}
-                        className="absolute w-full h-full rounded-full border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.05)]"
+                        className="absolute w-full h-full rounded-full border border-white/30 shadow-[0_0_20px_rgba(34,211,238,0.1)]"
                         style={{ transform: `rotateY(${i * 36}deg)` }}
                     />
                 ))}
 
-                {/* Internal Pulsing Core (Minimal) */}
+                {/* Internal Pulsing Core (More Prominent) */}
                 <motion.div
-                    animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
+                    animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.8, 0.4] }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-1/4 h-1/4 bg-white/20 rounded-full blur-xl"
+                    className="w-1/4 h-1/4 bg-cyan-400/30 rounded-full blur-2xl"
                 />
             </motion.div>
 
             {/* Specular High-End Shine */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none z-20" />
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none z-20" />
         </div>
     );
 }
