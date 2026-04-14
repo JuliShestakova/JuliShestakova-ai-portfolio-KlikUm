@@ -25,7 +25,7 @@ const PROJECTS_DATA = {
         { title: "Real-time Мессенджер", desc: "Собственный движок для P2P-общения с низким пингом, синхронизацией групп и отслеживанием статусов присутствия.", type: "Связь", hasBlueprint: false },
         { title: "Generative Media & Video", desc: "Профессиональные конвейеры генерации видео (Runway Gen-3, Sora, Kling AI). Креативный AI (Nano Banana).", type: "GenAI", hasBlueprint: false },
         { title: "Neural HUD Архитектура", desc: "Дизайн-система для информационно-насыщенных дашбордов на базе Tailwind 4 и Framer Motion.", type: "UI/UX", hasBlueprint: false },
-        { title: "High-Load & Mobile", desc: "Масштабируемая инфраструктура на Supabase и Python. Нативный экспорт в мобильные приложения через Capacitor.", type: "Engineering", hasBlueprint: false },
+        { title: "High-Load & Mobile", desc: "Масштабируемая инфраструктура на базе Supabase и Python. Нативный экспорт в мобильные приложения через Capacitor.", type: "Engineering", hasBlueprint: false },
         { title: "Автономные AI-Агенты", desc: "Разработка самообучающихся сред для автоматизации задач и интеллектуальной оркестрации опыта.", type: "Агенты", hasBlueprint: false }
     ]
 };

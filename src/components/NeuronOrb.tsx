@@ -36,7 +36,7 @@ export default function NeuronOrb({ size = "md", className = "" }: NeuronOrbProp
                 {[...Array(5)].map((_, i) => (
                     <div
                         key={`h-${i}`}
-                        className="absolute w-full h-full rounded-full border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)]"
+                        className="absolute w-full h-full rounded-full border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.05)]"
                         style={{ transform: `rotateX(${i * 36}deg)` }}
                     />
                 ))}
@@ -45,7 +45,7 @@ export default function NeuronOrb({ size = "md", className = "" }: NeuronOrbProp
                 {[...Array(5)].map((_, i) => (
                     <div
                         key={`v-${i}`}
-                        className="absolute w-full h-full rounded-full border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)]"
+                        className="absolute w-full h-full rounded-full border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.05)]"
                         style={{ transform: `rotateY(${i * 36}deg)` }}
                     />
                 ))}
