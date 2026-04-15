@@ -20,7 +20,7 @@ export default function NeuronOrb({ size = "md", className = "" }: NeuronOrbProp
         sm: "w-32 h-32",
         md: "w-56 h-56",
         lg: "w-80 h-80",
-        xl: "w-[500px] h-[500px]"
+        xl: "w-[280px] h-[280px] md:w-[500px] md:h-[500px]"
     };
 
     return (
