@@ -104,16 +104,16 @@ export default function PortfolioPage() {
           <div className="flex items-center gap-4">
             <div className="w-3 h-3 rounded-full bg-cyan-500 animate-pulse shadow-[0_0_15px_rgba(34,211,238,0.6)]" />
             <div className="flex flex-col">
-                <span className="text-[14px] font-black uppercase tracking-[0.4em] text-white/90">{t.title}</span>
-                <span className="text-[10px] uppercase tracking-widest text-cyan-500/50 font-black">{t.subtitle}</span>
+                <span className="text-[12px] md:text-[14px] font-black uppercase tracking-[0.2em] md:tracking-[0.4em] text-white/90 leading-tight">{t.title}</span>
+                <span className="text-[8px] md:text-[10px] uppercase tracking-[0.1em] md:tracking-widest text-cyan-500/50 font-black">{t.subtitle}</span>
             </div>
           </div>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-10">
             {t.nav.map((item) => (
-              <button key={item} className="text-[11px] font-bold uppercase tracking-widest text-white/40 hover:text-white transition-colors cursor-pointer">
-                // {item}
+              <button key={item} className="text-[11px] font-black uppercase tracking-[0.2em] text-white hover:text-cyan-400 transition-colors cursor-pointer">
+                {item}
               </button>
             ))}
             <div className="h-4 w-[1px] bg-white/10" />
@@ -152,9 +152,8 @@ export default function PortfolioPage() {
                     key={item} 
                     onClick={() => {
                         setIsMenuOpen(false);
-                        // Trigger scroll to specific section if connected
                     }}
-                    className="text-2xl font-black uppercase tracking-[0.3em] text-white/40 hover:text-cyan-400 transition-all hover:scale-110"
+                    className="text-2xl font-black uppercase tracking-[0.3em] text-white hover:text-cyan-400 transition-all hover:scale-110"
                   >
                     {item}
                   </button>
@@ -175,7 +174,7 @@ export default function PortfolioPage() {
       </AnimatePresence>
 
       {/* 2. HERO AREA (The 2-Line Layout - Reorganized) */}
-      <section className="relative pt-40 pb-20 px-6 min-h-[95vh] flex flex-col justify-center overflow-hidden">
+      <section className="relative pt-32 md:pt-40 pb-20 px-6 min-h-[90vh] md:min-h-[95vh] flex flex-col justify-center overflow-hidden">
         {/* Background Visuals - Adjusted for higher contrast and specific glows */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {/* Deep charcoal grain/noise would be nice but using radial gradients for now */}
